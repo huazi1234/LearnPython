@@ -4,3 +4,8 @@ Pyqt-integration 怎么配置
 ui-->py的两种方法
 1.使用Eric6转换
 2.pyuic5 -o test.py test.ui
+
+
+自动生成的代码报错
+        #self.buttonBox.accepted.connect(Dialog.accept)
+        #self.buttonBox.rejected.connect(Dialog.reject)
