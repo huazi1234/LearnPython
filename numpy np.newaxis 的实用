@@ -1,0 +1,60 @@
+numpy np.newaxis 的实用
+
+https://www.cnblogs.com/onemorepoint/p/8110523.html
+>> type(np.newaxis)
+NoneType
+>> np.newaxis == None
+True
+ 
+
+np.newaxis 在使用和功能上等价于 None，其实就是 None 的一个别名。
+
+1. np.newaxis 的实用
+>> x = np.arange(3)
+>> x
+array([0, 1, 2])
+>> x.shape
+(3,)
+
+>> x[:, np.newaxis]
+array([[0],
+       [1],
+       [2]])
+
+>> x[:, None]
+array([[0],
+       [1],
+       [2]])
+
+>> x[:, np.newaxis].shape
+ (3, 1)
+ 
+
+2. 索引多维数组的某一列时返回的是一个行向量
+>>> X = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+>>> X[:, 1]
+array([2, 6, 10])       % 这里是一个行
+>>> X[:, 1].shape       % X[:, 1] 的用法完全等同于一个行，而不是一个列，
+(3, )
+ 
+
+如果我索引多维数组的某一列时，返回的仍然是列的结构，一种正确的索引方式是：
+
+>>>X[:, 1][:, np.newaxis]
+array([[2],
+      [6],
+      [10]])
+如果想实现第二列和第四列的拼接（层叠）：
+
+>>>X_sub = np.hstack([X[:, 1][:, np.newaxis], X[:, 3][:, np.newaxis]])           
+                   % hstack：horizontal stack，水平方向上的层叠
+>>>X_sub
+array([[2, 4]
+      [6, 8]
+      [10, 12]])
+当然更为简单的方式还是使用切片：
+
+>> X[:, [1, 3]]
+array([[ 2,  4],
+       [ 6,  8],
+       [10, 12]])
