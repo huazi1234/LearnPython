@@ -1,0 +1,6 @@
+
+Pyqt-integration 怎么配置
+
+ui-->py的两种方法
+1.使用Eric6转换
+2.pyuic5 -o test.py test.ui
