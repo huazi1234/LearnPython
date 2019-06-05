@@ -1,0 +1,53 @@
+注意事项: 当一个文件里的函数，类要被别的文件导入时，他的文件名不能以数字开头，
+          它自己单独运行是可以的。
+
+
+在同一个文件夹下
+调用函数：
+A.py文件：
+def add(x,y):
+
+ print('和为：%d'%(x+y))
+
+B.py文件：
+import A
+
+A.add(1,2)
+
+from A import add
+
+add(1,2)
+
+调用类：
+
+A.py文件:
+class A:
+
+    def __init__(self,xx,yy):
+        self.x=xx
+        self.y=yy
+    def add(self):
+        print("x和y的和为：%d"%(self.x+self.y))
+B.py文件：
+from A import A
+
+a=A(2,3)
+a.add()
+或
+
+import A
+a=A.A(2,3)
+a.add()
+
+在不同文件夹下
+A.py文件的文件路径：E:\PythonProject\winycg
+
+B.py文件：
+import sys
+sys.path.append(r'E:\PythonProject\winycg')
+'''python import模块时， 是在sys.path里按顺序查找的。
+sys.path是一个列表，里面以字符串的形式存储了许多路径。
+使用A.py文件中的函数需要先将他的文件路径放到sys.path中'''
+import A
+a=A.A(2,3)
+a.add()
