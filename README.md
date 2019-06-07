@@ -10,6 +10,11 @@
   
   self.dlg.setMinimumSize(QtCore.QSize(700,700))
   
+  
+  可以这样:
+  from PyQt5.QtCore import QSize
+  self.dlg.setMinimumSize(QSize(700,700))
+  
 3. Qt.ApplicationModal怎么才能直接用
  
   self.dlg.setWindowModality(2) #ApplicationModal)
