@@ -1,0 +1,102 @@
+Python内置函数—bytearray
+英文文档：
+
+class bytearray([source[, encoding[, errors]]])
+
+Return a new array of bytes. The bytearray class is a mutable sequence of integers in the range 0 <= x < 256. It has most of the usual methods of mutable sequences, described in Mutable Sequence Types, as well as most methods that the bytes type has, see Bytes and Bytearray Operations.
+
+The optional source parameter can be used to initialize the array in a few different ways:
+
+If it is a string, you must also give the encoding (and optionally, errors) parameters; bytearray() then converts the string to bytes using str.encode().
+If it is an integer, the array will have that size and will be initialized with null bytes.
+If it is an object conforming to the buffer interface, a read-only buffer of the object will be used to initialize the bytes array.
+If it is an iterable, it must be an iterable of integers in the range 0 <= x < 256, which are used as the initial contents of the array
+
+复制代码
+    def __init__(self, source=None, encoding=None, errors='strict'): # known special case of bytearray.__init__
+        """
+        bytearray(iterable_of_ints) -> bytearray
+        bytearray(string, encoding[, errors]) -> bytearray
+        bytearray(bytes_or_buffer) -> mutable copy of bytes_or_buffer
+        bytearray(int) -> bytes array of size given by the parameter initialized with null bytes
+        bytearray() -> empty bytes array
+        
+        Construct a mutable bytearray object from:
+          - an iterable yielding integers in range(256)
+          - a text string encoded using the specified encoding
+          - a bytes or a buffer object
+          - any object implementing the buffer API.
+          - an integer
+        # (copied from class doc)
+        """
+        pass
+复制代码
+返回一个新的字节数组。
+bytearray类是range 0 < = x < 256的一个可变序列。
+它有大多数可变序列的常用方法，在可变序列类型中描述，以及大多数字节类型的方法，参见字节和Bytearray操作。
+
+可选的源参数可以用几种不同的方式来初始化数组:
+
+如果它是一个字符串，那么您还必须给出编码(以及可选的错误)参数;bytearray()然后使用str.encode()将字符串转换为字节。
+如果它是一个整数，那么数组将具有这个大小，并将用null字节初始化。
+如果它是符合缓冲区接口的对象，则将使用对象的只读缓冲区来初始化字节数组。
+如果它是可迭代的，那么它必须是range 0 < = x < 256的整数的迭代，它被用作数组的初始内容
+如果没有参数，则创建一个大小为0的数组。
+
+说明：
+1. 返回值为一个新的字节数组
+2. 当3个参数都不传的时候，返回长度为0的字节数组
+    #!/usr/bin/python3
+    b = bytearray()
+    print(b)
+    print(len(b))
+    结果：
+    bytearray(b'')
+
+3. 当source参数为字符串时，encoding参数也必须提供，函数将字符串使用str.encode方法转换成字节数组
+
+    b = bytearray('中文')
+    结果：
+    Traceback (most recent call last):
+      File "D:/py/day001/day1/test.py", line 3, in <module>
+        b = bytearray('中文')
+    TypeError: string argument without an encoding
+    encoding参数也必须提供，函数将字符串使用str.encode方法转换成字节数组
+
+    b = bytearray('中文', 'utf-8')
+    print(b)
+    print(len(b))
+    结果：
+    bytearray(b'\xe4\xb8\xad\xe6\x96\x87')
+
+4. 当source参数为整数时，返回这个整数所指定长度的空字节数组
+
+    #!/usr/bin/python3
+    b = bytearray(5)
+    print(b)
+    print(len(b))
+    执行结果：
+    bytearray(b'\x00\x00\x00\x00\x00')
+
+5. 当source参数为实现了buffer接口的object对象时，那么将使用只读方式将字节读取到字节数组后返回
+
+    #!/usr/bin/python3
+    b = bytearray([1,2,3,4,5])
+    print(b)
+    print(len(b))
+    执行结果：
+    bytearray(b'\x01\x02\x03\x04\x05')
+
+6. 当source参数是一个可迭代对象，那么这个迭代对象的元素都必须符合0 <= x < 256，以便可以初始化到数组里
+
+
+    #!/usr/bin/python3
+
+    b = bytearray([1,2,3,4,5,256])
+    print(b)
+    print(len(b))
+    执行结果：
+    Traceback (most recent call last):
+      File "D:/py/day001/day1/test.py", line 3, in <module>
+        b = bytearray([1,2,3,4,5,256])
+    ValueError: byte must be in range(0, 256)
