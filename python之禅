@@ -1,0 +1,47 @@
+>>> import this
+#python之禅，tim petres著
+The Zen of Python, by Tim Peters
+#避丑选美
+
+Beautiful is better than ugly.
+#避隐就显
+Explicit is better than implicit.
+#避复就简
+Simple is better than complex.
+#实在要复杂就复杂的简单点
+Complex is better than complicated.
+#能不嵌套就不嵌套
+Flat is better than nested.
+#别整的密密麻麻
+Sparse is better than dense.
+#别整的谁都读不懂，程序不是写给机器看的（这是豹哥最要强调的地方，程序永远不是写给机器看的！！！！）
+Readability counts.
+#没有规矩不成方圆，不要打破规则
+Special cases aren't special enough to break the rules.
+#尽管很变一些东西很实用，但是能不改规则就不改。
+Although practicality beats purity.
+#错误是正常的，去大胆面对，去勇于改错
+Errors should never pass silently.
+#当然，实在不想改又不耽误使用，去TMD的Errors，人生嘛，开心重要。（哈哈哈，这句就带有豹哥的主管意识了，大家尽量无视。）
+Unless explicitly silenced.
+#恍惚不定，不要轻易下定论
+In the face of ambiguity, refuse the temptation to guess.
+#举棋不定，选最优点落子，选好就落。
+There should be one-- and preferably only one --obvious way to do it.
+#几子无变，朝大局看，除非你是柯洁（好吧，我又开始卖弄玄学了，哈哈哈。这句意思就是世上没有什么容易的是，除非你是python它爹）
+Although that way may not be obvious at first unless you're Dutch.
+#别说什么变量，别说什么类，别说什么多线程编程，老夫就一把刷子，撸就对了。（哈哈哈，抄袭网络名句）
+Now is better than never.
+#补充上句，前提得对，别走错方向，得细细谋划
+Although never is often better than *right* now.
+#说的清楚，理的明白，说不定就是好方案，说不清，理不明，就要考虑考虑换方法。
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+#python利器之一    命名空间，多用就对了。
+Namespaces are one honking great idea -- let's do more of those!
+>>> 
+--------------------- 
+作者：change_you_or_world 
+来源：CSDN 
+原文：https://blog.csdn.net/change_you_or_world/article/details/79903240 
+版权声明：本文为博主原创文章，转载请附上博文链接！
